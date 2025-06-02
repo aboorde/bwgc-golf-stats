@@ -17,6 +17,16 @@ interface ScoreDistributionChartProps {
   height?: number
 }
 
+interface DistributionData {
+  range: string
+  count: number
+  averageScore: number
+  scores: number[]
+  details?: string
+  description?: string
+  percentage?: string
+}
+
 const ScoreDistributionChart: React.FC<ScoreDistributionChartProps> = ({ height = 400 }) => {
   const [viewMode, setViewMode] = useState<'all' | 'course' | 'team'>('all')
   
@@ -45,7 +55,7 @@ const ScoreDistributionChart: React.FC<ScoreDistributionChartProps> = ({ height 
   }, [])
 
   // Create meaningful golf score distribution
-  const distributionData = React.useMemo(() => {
+  const distributionData = React.useMemo((): DistributionData[] => {
     let filteredScores = allScores
     
     // Filter based on view mode
@@ -289,7 +299,7 @@ const ScoreDistributionChart: React.FC<ScoreDistributionChartProps> = ({ height 
                 y={tournamentStats.totalRounds / 6} 
                 stroke="#6b7280" 
                 strokeDasharray="5 5"
-                label={{ value: "Expected (uniform)", position: "topRight", fill: '#6b7280' }}
+                label={{ value: "Expected (uniform)", position: "top", fill: '#6b7280' }}
               />
             )}
             <Tooltip content={<CustomTooltip />} />
@@ -324,27 +334,27 @@ const ScoreDistributionChart: React.FC<ScoreDistributionChartProps> = ({ height 
                 </span>
               </div>
               <p className="text-gray-300 text-xs mt-3">
-                Most rounds fell in the {distributionData.reduce((max, current) => current.count > max.count ? current : max).description?.toLowerCase()} range.
+                Most rounds fell in the {distributionData.reduce((max, current) => current.count > max.count ? current : max).description?.toLowerCase() || 'common'} range.
               </p>
             </div>
           ) : viewMode === 'course' ? (
             <div className="space-y-3 text-sm">
               {distributionData.map(course => (
                 <div key={course.range} className="flex justify-between p-2 bg-gray-800 rounded">
-                  <span className="text-gray-300">{course.details}:</span>
+                  <span className="text-gray-300">{course.details || course.range}:</span>
                   <span className="font-medium text-gray-100">{course.averageScore.toFixed(1)} avg</span>
                 </div>
               ))}
               <p className="text-gray-300 text-xs mt-3">
                 Course difficulty varies significantly - 
-                {distributionData.reduce((hardest, current) => current.averageScore > hardest.averageScore ? current : hardest).details} was the most challenging.
+                {distributionData.reduce((hardest, current) => current.averageScore > hardest.averageScore ? current : hardest).details || 'the hardest course'} was the most challenging.
               </p>
             </div>
           ) : (
             <div className="space-y-3 text-sm">
               {distributionData.map(team => (
                 <div key={team.range} className="flex justify-between p-2 bg-gray-800 rounded">
-                  <span className="text-gray-300">{team.details}:</span>
+                  <span className="text-gray-300">{team.details || team.range}:</span>
                   <span className="font-medium text-gray-100">{team.averageScore.toFixed(1)} avg</span>
                 </div>
               ))}
