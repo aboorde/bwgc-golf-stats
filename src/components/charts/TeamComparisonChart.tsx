@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
   Cell
 } from 'recharts'
-import { getTeamData, data } from '../../utils/data'
+import { useTeamData, usePlayerData } from '../../hooks'
 import { Users, Trophy, Target, TrendingDown } from 'lucide-react'
 
 interface TeamComparisonChartProps {
@@ -19,40 +19,48 @@ interface TeamComparisonChartProps {
 const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height }) => {
   // Responsive height - smaller on mobile
   const responsiveHeight = height || (typeof window !== 'undefined' && window.innerWidth < 768 ? 300 : 400)
-  const teamData = getTeamData()
+  const { allTeams, comparison } = useTeamData()
+  const { allPlayers } = usePlayerData()
   const [viewMode, setViewMode] = useState<'total' | 'average'>('average')
 
-  // Calculate additional team statistics
+  // Enhanced team data with member details
   const enhancedTeamData = React.useMemo(() => {
-    return teamData.map(team => {
-      // Calculate best and worst individual scores from team members
-      const memberScores = team.players.map(player => {
-        const playerStats = data.player_statistics[player]
+    if (!allTeams || !allPlayers) return []
+    
+    return allTeams.map(team => {
+      // Get member details
+      const memberScores = team.members.map(playerName => {
+        const playerStats = allPlayers.find(p => p.name === playerName)
         return {
-          player,
-          total: playerStats?.basic_stats.total_score || 0,
-          average: playerStats?.basic_stats.scoring_average || 0,
-          best: playerStats?.basic_stats.best_round || 0,
-          worst: playerStats?.basic_stats.worst_round || 0
+          player: playerName,
+          total: playerStats?.basicStats.totalScore || 0,
+          average: playerStats?.basicStats.scoringAverage || 0,
+          best: playerStats?.basicStats.bestRound || 0,
+          worst: playerStats?.basicStats.worstRound || 0
         }
       })
 
+      // Calculate best and worst individual scores from member data
       const bestIndividualScore = Math.min(...memberScores.map(m => m.best))
       const worstIndividualScore = Math.max(...memberScores.map(m => m.worst))
       const teamConsistency = memberScores.reduce((sum, member) => {
-        const playerStats = data.player_statistics[member.player]
-        return sum + (playerStats?.consistency.score_standard_deviation || 0)
+        const playerStats = allPlayers.find(p => p.name === member.player)
+        return sum + (playerStats?.consistencyStats.standardDeviation || 0)
       }, 0) / memberScores.length
 
       return {
-        ...team,
+        team: team.name,
+        totalScore: team.totalScore,
+        averageScore: team.averageScore,
+        players: team.members,
         memberScores,
         bestIndividualScore,
         worstIndividualScore,
-        teamConsistency
+        teamConsistency,
+        teamPoints: team.teamPoints
       }
     })
-  }, [teamData])
+  }, [allTeams, allPlayers])
 
   const chartData = enhancedTeamData.map(team => ({
     team: team.team,
@@ -65,7 +73,11 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height }) => 
     consistency: team.teamConsistency
   }))
 
-  const teamColors = ['#3b82f6', '#ef4444'] // Blue for Banana Boys, Red for 3 Lefties
+  // Dynamic team colors based on team names
+  const getTeamColor = (teamName: string) => {
+    return teamName.includes('Banana') ? '#3b82f6' : '#ef4444'
+  }
+  const teamColors = enhancedTeamData.map(team => getTeamColor(team.team))
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
@@ -105,9 +117,7 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height }) => 
     return null
   }
 
-  const winner = enhancedTeamData.reduce((best, current) => 
-    current.averageScore < best.averageScore ? current : best
-  )
+  const winner = enhancedTeamData[0] // Teams from service are already sorted by performance
 
   return (
     <div className="space-y-6">
@@ -293,7 +303,7 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height }) => 
             <div className="flex justify-between items-center p-3 bg-gray-800 rounded border border-gray-700">
               <span className="font-medium text-gray-100">Winning Margin</span>
               <span className="font-bold text-blue-400">
-                {Math.abs(enhancedTeamData[0].averageScore - enhancedTeamData[1].averageScore).toFixed(1)} strokes
+                {comparison?.scoreDifference.toFixed(1)} strokes
               </span>
             </div>
             <div className="flex justify-between items-center p-3 bg-gray-800 rounded border border-gray-700">
@@ -330,7 +340,7 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height }) => 
             <div className="p-3 bg-gray-800 rounded border border-gray-700">
               <p className="font-medium text-gray-100 mb-1">Closest Competition</p>
               <p className="text-gray-300">
-                The teams were separated by only {Math.abs(enhancedTeamData[0].averageScore - enhancedTeamData[1].averageScore).toFixed(1)} strokes on average
+                The teams were separated by only {comparison?.scoreDifference.toFixed(1)} strokes on average
               </p>
             </div>
 

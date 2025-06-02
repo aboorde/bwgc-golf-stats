@@ -89,7 +89,6 @@ bwgc-golf-stats/
 │   │   ├── charts/               # Chart components (Recharts-based)
 │   │   │   ├── BarChart.tsx
 │   │   │   ├── CourseDifficultyChart.tsx
-│   │   │   ├── CoursePerformanceChart.tsx
 │   │   │   ├── FunFacts.tsx
 │   │   │   ├── Leaderboard.tsx
 │   │   │   ├── LineChart.tsx
@@ -234,7 +233,6 @@ The core web application is complete. Potential future improvements:
 - **TeamComparisonChart.tsx**: Team performance comparison with statistics
 - **PlayerProfileCards.tsx**: Expandable cards with detailed player stats
 - **FunFacts.tsx**: Rotating auto-updating tournament insights
-- **CoursePerformanceChart.tsx**: Player performance by course
 - **CourseDifficultyChart.tsx**: Course difficulty analysis
 - **ScoreDistributionChart.tsx**: Score distribution visualization
 - **MatchPlayMatrix.tsx**: Head-to-head match play results

@@ -12,7 +12,6 @@ import TeamComparisonChart from '../charts/TeamComparisonChart'
 import SortableLeaderboard from '../charts/SortableLeaderboard'
 import PlayerProfileCards from '../charts/PlayerProfileCards'
 import FunFacts from '../charts/FunFacts'
-import CoursePerformanceChart from '../charts/CoursePerformanceChart'
 import Card from '../ui/Card'
 
 const Dashboard: React.FC = () => {
@@ -78,7 +77,6 @@ const Dashboard: React.FC = () => {
             <Card title="Course Difficulty Analysis" subtitle="Comprehensive comparison across all courses">
               <CourseDifficultyChart />
             </Card>
-            <CoursePerformanceChart />
           </div>
         </TabsContent>
 
