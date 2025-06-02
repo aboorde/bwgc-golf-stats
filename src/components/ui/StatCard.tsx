@@ -25,10 +25,10 @@ const StatCard: React.FC<StatCardProps> = ({
     <div className={`stat-card ${className}`}>
       <div className="flex items-start justify-between">
         <div className="flex-1">
-          <p className="text-sm font-medium text-gray-400">{title}</p>
-          <p className="text-2xl font-bold text-gray-100 mt-1">{value}</p>
+          <p className="text-xs md:text-sm font-medium text-gray-400">{title}</p>
+          <p className="text-xl md:text-2xl font-bold text-gray-100 mt-1">{value}</p>
           {subtitle && (
-            <p className="text-sm text-gray-400 mt-1">{subtitle}</p>
+            <p className="text-xs md:text-sm text-gray-400 mt-1">{subtitle}</p>
           )}
         </div>
         

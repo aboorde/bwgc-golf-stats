@@ -132,15 +132,16 @@ const PlayerProfileCards: React.FC<PlayerProfileCardsProps> = ({
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="text-center">
-        <h2 className="text-2xl font-bold text-gray-100">Player Profiles</h2>
-        <p className="text-sm text-gray-400 mt-2">
-          Comprehensive stats and performance highlights for each player
+      <div className="text-center px-4">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-100">Player Profiles</h2>
+        <p className="text-xs md:text-sm text-gray-400 mt-2">
+          <span className="hidden sm:inline">Comprehensive stats and performance highlights for each player</span>
+          <span className="sm:hidden">Player stats and highlights</span>
         </p>
       </div>
 
       {/* Player Cards Grid */}
-      <div className={`grid ${gridColsClass} gap-6`}>
+      <div className={`grid ${gridColsClass} gap-4 md:gap-6 px-4 md:px-0`}>
         {players.map(playerName => {
           const playerStats = data.player_statistics[playerName]
           const leaderboardEntry = data.tournament_summary.leaderboard.find(p => p.player === playerName)
@@ -157,39 +158,39 @@ const PlayerProfileCards: React.FC<PlayerProfileCardsProps> = ({
               onClick={() => setSelectedPlayer(selectedPlayer === playerName ? null : playerName)}
             >
               {/* Player Header */}
-              <div className="p-6 pb-4">
+              <div className="p-4 md:p-6 pb-3 md:pb-4">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-100">{playerName}</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-gray-100">{playerName}</h3>
                     <div className="flex items-center space-x-2 mt-1">
-                      <span className="text-sm text-gray-400">#{position}</span>
-                      <span className={`text-lg font-bold ${grade.color}`}>{grade.grade}</span>
+                      <span className="text-xs md:text-sm text-gray-400">#{position}</span>
+                      <span className={`text-base md:text-lg font-bold ${grade.color}`}>{grade.grade}</span>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-gray-100">
+                    <div className="text-xl md:text-2xl font-bold text-gray-100">
                       {leaderboardEntry?.total_score}
                     </div>
-                    <div className="text-sm text-gray-400">total strokes</div>
+                    <div className="text-xs md:text-sm text-gray-400">total strokes</div>
                   </div>
                 </div>
 
                 {/* Key Stats */}
-                <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="grid grid-cols-3 gap-2 md:gap-4 text-center">
                   <div>
-                    <div className="text-lg font-semibold text-gray-100">
+                    <div className="text-base md:text-lg font-semibold text-gray-100">
                       {leaderboardEntry?.scoring_average.toFixed(1)}
                     </div>
                     <div className="text-xs text-gray-400">Average</div>
                   </div>
                   <div>
-                    <div className="text-lg font-semibold text-green-600">
+                    <div className="text-base md:text-lg font-semibold text-green-400">
                       {playerStats?.basic_stats.best_round}
                     </div>
                     <div className="text-xs text-gray-400">Best Round</div>
                   </div>
                   <div>
-                    <div className="text-lg font-semibold text-blue-600">
+                    <div className="text-base md:text-lg font-semibold text-blue-400">
                       {playerStats?.consistency.score_standard_deviation.toFixed(1)}σ
                     </div>
                     <div className="text-xs text-gray-400">Consistency</div>
@@ -198,17 +199,17 @@ const PlayerProfileCards: React.FC<PlayerProfileCardsProps> = ({
               </div>
 
               {/* Performance Highlights */}
-              <div className="px-6 pb-4">
-                <div className="space-y-2">
+              <div className="px-4 md:px-6 pb-3 md:pb-4">
+                <div className="space-y-1 md:space-y-2">
                   {highlights.map((highlight, index) => {
                     const Icon = highlight.icon
                     return (
                       <div 
                         key={index}
-                        className={`flex items-center space-x-2 p-2 rounded-lg ${highlight.bg}`}
+                        className={`flex items-center space-x-2 p-2 rounded-lg ${highlight.bg}/20 border border-gray-600`}
                       >
                         <Icon className={`h-4 w-4 ${highlight.color}`} />
-                        <span className={`text-sm font-medium ${highlight.color}`}>
+                        <span className={`text-xs md:text-sm font-medium ${highlight.color}`}>
                           {highlight.text}
                         </span>
                       </div>
@@ -219,47 +220,47 @@ const PlayerProfileCards: React.FC<PlayerProfileCardsProps> = ({
 
               {/* Detailed Stats (expandable) */}
               {selectedPlayer === playerName && showDetailedStats && (
-                <div className="border-t border-gray-700 bg-gray-850 p-6">
+                <div className="border-t border-gray-700 bg-gray-900 p-4 md:p-6">
                   <div className="space-y-4">
                     {/* Performance Breakdown */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                      <h4 className="font-semibold text-gray-100 mb-2 flex items-center">
                         <BarChart3 className="h-4 w-4 mr-2" />
                         Performance Breakdown
                       </h4>
-                      <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 text-sm">
                         <div className="flex justify-between">
-                          <span className="text-gray-600">Pars:</span>
-                          <span className="font-medium">{playerStats?.detailed_performance.pars}</span>
+                          <span className="text-gray-400">Pars:</span>
+                          <span className="font-medium text-gray-100">{playerStats?.detailed_performance.pars}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">Bogeys:</span>
-                          <span className="font-medium">{playerStats?.detailed_performance.bogeys}</span>
+                          <span className="text-gray-400">Bogeys:</span>
+                          <span className="font-medium text-gray-100">{playerStats?.detailed_performance.bogeys}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">Par %:</span>
-                          <span className="font-medium">{playerStats?.detailed_performance.par_or_better_percentage.toFixed(1)}%</span>
+                          <span className="text-gray-400">Par %:</span>
+                          <span className="font-medium text-gray-100">{playerStats?.detailed_performance.par_or_better_percentage.toFixed(1)}%</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">Match Play:</span>
-                          <span className="font-medium">{playerStats?.match_play_performance.win_percentage.toFixed(1)}%</span>
+                          <span className="text-gray-400">Match Play:</span>
+                          <span className="font-medium text-gray-100">{playerStats?.match_play_performance.win_percentage.toFixed(1)}%</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Daily Performance */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                      <h4 className="font-semibold text-gray-100 mb-2 flex items-center">
                         <Calendar className="h-4 w-4 mr-2" />
                         Daily Scores
                       </h4>
                       <div className="space-y-2">
                         {Object.entries(playerStats?.daily_performance || {}).map(([day, performance]) => (
                           <div key={day} className="flex justify-between items-center text-sm">
-                            <span className="text-gray-600">
-                              {day.replace('_', ' ').toUpperCase()}: {performance.course}
+                            <span className="text-gray-400 text-xs md:text-sm">
+                              {day.replace('_', ' ').toUpperCase()}: <span className="hidden sm:inline">{performance.course}</span><span className="sm:hidden">{performance.course.split(' ')[0]}</span>
                             </span>
-                            <span className="font-medium">
+                            <span className="font-medium text-gray-100">
                               {performance.score} (+{performance.relative_to_par})
                             </span>
                           </div>
@@ -269,20 +270,23 @@ const PlayerProfileCards: React.FC<PlayerProfileCardsProps> = ({
 
                     {/* Course Performance */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                      <h4 className="font-semibold text-gray-100 mb-2 flex items-center">
                         <MapPin className="h-4 w-4 mr-2" />
                         Course Ratings
                       </h4>
                       <div className="space-y-2">
                         {Object.entries(playerStats?.course_performance || {}).map(([course, performance]) => (
                           <div key={course} className="flex justify-between items-center text-sm">
-                            <span className="text-gray-600">{course}:</span>
+                            <span className="text-gray-400 text-xs md:text-sm">
+                              <span className="hidden sm:inline">{course}:</span>
+                              <span className="sm:hidden">{course.split(' ')[0]}:</span>
+                            </span>
                             <div className="flex items-center space-x-2">
-                              <span className="font-medium">{performance.average_score.toFixed(0)}</span>
+                              <span className="font-medium text-gray-100">{performance.average_score.toFixed(0)}</span>
                               <span className={`text-xs px-2 py-1 rounded ${
-                                performance.performance_rating === 'Excelled' ? 'bg-green-100 text-green-700' :
-                                performance.performance_rating === 'Solid' ? 'bg-blue-100 text-blue-700' :
-                                'bg-red-100 text-red-700'
+                                performance.performance_rating === 'Excelled' ? 'bg-green-900/50 text-green-400 border border-green-700' :
+                                performance.performance_rating === 'Solid' ? 'bg-blue-900/50 text-blue-400 border border-blue-700' :
+                                'bg-red-900/50 text-red-400 border border-red-700'
                               }`}>
                                 {performance.performance_rating}
                               </span>
@@ -296,7 +300,7 @@ const PlayerProfileCards: React.FC<PlayerProfileCardsProps> = ({
               )}
 
               {/* Click hint */}
-              <div className="px-6 pb-4">
+              <div className="px-4 md:px-6 pb-3 md:pb-4">
                 <div className="text-xs text-gray-500 text-center">
                   {selectedPlayer === playerName ? 'Click to collapse' : 'Click to expand details'}
                 </div>
@@ -307,12 +311,12 @@ const PlayerProfileCards: React.FC<PlayerProfileCardsProps> = ({
       </div>
 
       {/* Quick Comparison */}
-      <div className="bg-gradient-to-r from-gray-800 to-gray-750 rounded-lg p-6 border border-gray-700">
-        <h3 className="font-semibold text-gray-100 mb-4 flex items-center">
-          <Users className="h-5 w-5 mr-2" />
+      <div className="bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg p-4 md:p-6 border border-gray-700 mx-4 md:mx-0">
+        <h3 className="font-semibold text-gray-100 mb-3 md:mb-4 flex items-center text-sm md:text-base">
+          <Users className="h-4 w-4 md:h-5 md:w-5 mr-2" />
           Quick Player Comparison
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 text-xs md:text-sm">
           <div>
             <div className="font-semibold text-gray-100">Best Average:</div>
             <div className="text-green-400">

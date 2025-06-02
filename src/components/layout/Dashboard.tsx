@@ -19,28 +19,31 @@ const Dashboard: React.FC = () => {
   return (
     <div className="space-y-8">
       {/* Tournament Header */}
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold text-gray-100">
+      <div className="text-center space-y-3 px-4">
+        <h1 className="text-2xl md:text-4xl font-bold text-gray-100">
           Myrtle Beach Tournament 2024
         </h1>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-          Comprehensive analytics from our 4-day golf adventure featuring 8 players, 
-          3 challenging courses, and multiple tournament formats.
+        <p className="text-sm md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <span className="hidden sm:inline">Comprehensive analytics from our 4-day golf adventure featuring 8 players, 
+          3 challenging courses, and multiple tournament formats.</span>
+          <span className="sm:hidden">4-day tournament analytics • 8 players • 3 courses</span>
         </p>
       </div>
 
       {/* Main Dashboard Tabs */}
       <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="grid w-full grid-cols-5">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="leaderboard">Leaderboard</TabsTrigger>
-          <TabsTrigger value="players">Players</TabsTrigger>
-          <TabsTrigger value="courses">Courses</TabsTrigger>
-          <TabsTrigger value="matchplay">Match Play</TabsTrigger>
-        </TabsList>
+        <div className="overflow-x-auto">
+          <TabsList className="grid w-full grid-cols-5 md:grid-cols-5 min-w-max md:min-w-0">
+            <TabsTrigger value="overview" className="text-xs md:text-sm px-2 md:px-4">Overview</TabsTrigger>
+            <TabsTrigger value="leaderboard" className="text-xs md:text-sm px-2 md:px-4">Leaderboard</TabsTrigger>
+            <TabsTrigger value="players" className="text-xs md:text-sm px-2 md:px-4">Players</TabsTrigger>
+            <TabsTrigger value="courses" className="text-xs md:text-sm px-2 md:px-4">Courses</TabsTrigger>
+            <TabsTrigger value="matchplay" className="text-xs md:text-sm px-2 md:px-4">Match Play</TabsTrigger>
+          </TabsList>
+        </div>
 
-        <TabsContent value="overview" className="mt-8">
-          <div className="space-y-8">
+        <TabsContent value="overview" className="mt-6 md:mt-8">
+          <div className="space-y-6 md:space-y-8">
             <TournamentOverview />
             <Card title="Team Performance Comparison" subtitle="Banana Boys vs 3 Lefties make a Righty">
               <TeamComparisonChart />
@@ -49,15 +52,15 @@ const Dashboard: React.FC = () => {
           </div>
         </TabsContent>
 
-        <TabsContent value="leaderboard" className="mt-8">
-          <div className="space-y-8">
+        <TabsContent value="leaderboard" className="mt-6 md:mt-8">
+          <div className="space-y-6 md:space-y-8">
             <SortableLeaderboard />
-            <PlayerProfileCards columns={2} />
+            <PlayerProfileCards columns={1} />
           </div>
         </TabsContent>
 
-        <TabsContent value="players" className="mt-8">
-          <div className="space-y-8">
+        <TabsContent value="players" className="mt-6 md:mt-8">
+          <div className="space-y-6 md:space-y-8">
             <PlayerStats />
             <Card title="Player Scoring Progression" subtitle="Performance across all 4 tournament days">
               <PlayerProgressionChart />
@@ -65,12 +68,12 @@ const Dashboard: React.FC = () => {
             <Card title="Score Distribution Analysis" subtitle="Individual player scoring patterns">
               <ScoreDistributionChart />
             </Card>
-            <PlayerProfileCards columns={3} showDetailedStats={true} />
+            <PlayerProfileCards columns={1} showDetailedStats={true} />
           </div>
         </TabsContent>
 
-        <TabsContent value="courses" className="mt-8">
-          <div className="space-y-8">
+        <TabsContent value="courses" className="mt-6 md:mt-8">
+          <div className="space-y-6 md:space-y-8">
             <CourseAnalysis />
             <Card title="Course Difficulty Analysis" subtitle="Comprehensive comparison across all courses">
               <CourseDifficultyChart />
@@ -79,8 +82,8 @@ const Dashboard: React.FC = () => {
           </div>
         </TabsContent>
 
-        <TabsContent value="matchplay" className="mt-8">
-          <div className="space-y-8">
+        <TabsContent value="matchplay" className="mt-6 md:mt-8">
+          <div className="space-y-6 md:space-y-8">
             <MatchPlayResults />
             <Card title="Head-to-Head Match Play Matrix" subtitle="Complete player vs player results">
               <MatchPlayMatrix />

@@ -6,7 +6,9 @@ interface CoursePerformanceChartProps {
   height?: number
 }
 
-const CoursePerformanceChart: React.FC<CoursePerformanceChartProps> = ({ height = 600 }) => {
+const CoursePerformanceChart: React.FC<CoursePerformanceChartProps> = ({ height }) => {
+  // Responsive height - smaller on mobile
+  const responsiveHeight = height || (typeof window !== 'undefined' && window.innerWidth < 768 ? 350 : 600)
   const players = getPlayerList()
   const courses = Object.keys(data.course_analysis.course_stats)
   const [selectedCourse, setSelectedCourse] = useState<string>(courses[0])

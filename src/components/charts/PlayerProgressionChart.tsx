@@ -15,7 +15,9 @@ interface PlayerProgressionChartProps {
   height?: number
 }
 
-const PlayerProgressionChart: React.FC<PlayerProgressionChartProps> = ({ height = 400 }) => {
+const PlayerProgressionChart: React.FC<PlayerProgressionChartProps> = ({ height }) => {
+  // Responsive height - smaller on mobile
+  const responsiveHeight = height || (typeof window !== 'undefined' && window.innerWidth < 768 ? 300 : 400)
   const allProgressions = getAllPlayerProgressions()
   const [selectedPlayers, setSelectedPlayers] = useState<string[]>(
     allProgressions.map(p => p.player)
@@ -136,7 +138,7 @@ const PlayerProgressionChart: React.FC<PlayerProgressionChartProps> = ({ height 
       </div>
 
       {/* Chart */}
-      <ResponsiveContainer width="100%" height={height}>
+      <ResponsiveContainer width="100%" height={responsiveHeight}>
         <LineChart data={chartData} margin={{ top: 20, right: 30, left: 50, bottom: 20 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
           <XAxis 

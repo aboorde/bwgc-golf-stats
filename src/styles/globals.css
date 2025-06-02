@@ -16,7 +16,7 @@
 
 @layer components {
   .card {
-    @apply bg-gray-800 rounded-lg shadow-lg border border-gray-700 p-6;
+    @apply bg-gray-800 rounded-lg shadow-lg border border-gray-700 p-4 md:p-6;
   }
   
   .chart-container {
@@ -24,7 +24,7 @@
   }
   
   .stat-card {
-    @apply bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 shadow-lg border border-gray-700 hover:shadow-xl transition-shadow;
+    @apply bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 md:p-6 shadow-lg border border-gray-700 hover:shadow-xl transition-shadow;
   }
   
   .btn-primary {

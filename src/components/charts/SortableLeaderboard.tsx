@@ -141,91 +141,91 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
   return (
     <div className="space-y-4">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-100">{title}</h2>
-        <div className="text-sm text-gray-400">
-          Click columns to sort • {leaderboardData.length} players
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-100">{title}</h2>
+        <div className="text-xs md:text-sm text-gray-400">
+          <span className="hidden sm:inline">Click columns to sort • </span>{leaderboardData.length} players
         </div>
       </div>
 
       {/* Leaderboard Table */}
       <div className="bg-gray-800 rounded-lg border border-gray-700 shadow-sm overflow-hidden">
         <div className="overflow-x-auto" style={{ maxHeight: height }}>
-          <table className="w-full">
+          <table className="w-full min-w-[800px]">
             <thead className="bg-gray-700 sticky top-0 z-10">
               <tr>
                 <th 
-                  className="px-4 py-3 text-left font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
+                  className="px-2 md:px-4 py-2 md:py-3 text-left font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('position')}
                 >
                   <div className="flex items-center space-x-1">
-                    <span>Pos</span>
+                    <span className="text-xs md:text-sm">Pos</span>
                     {getSortIcon('position')}
                   </div>
                 </th>
-                <th className="px-4 py-3 text-left font-semibold text-gray-200">
-                  Player
+                <th className="px-2 md:px-4 py-2 md:py-3 text-left font-semibold text-gray-200">
+                  <span className="text-xs md:text-sm">Player</span>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
+                  className="px-2 md:px-4 py-2 md:py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('total_score')}
                 >
                   <div className="flex items-center justify-center space-x-1">
-                    <span>Total</span>
+                    <span className="text-xs md:text-sm">Total</span>
                     {getSortIcon('total_score')}
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
+                  className="px-2 md:px-4 py-2 md:py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('average')}
                 >
                   <div className="flex items-center justify-center space-x-1">
-                    <span>Average</span>
+                    <span className="text-xs md:text-sm">Avg</span>
                     {getSortIcon('average')}
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
+                  className="px-2 md:px-4 py-2 md:py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('best_round')}
                 >
                   <div className="flex items-center justify-center space-x-1">
-                    <span>Best</span>
+                    <span className="text-xs md:text-sm">Best</span>
                     {getSortIcon('best_round')}
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
+                  className="px-2 md:px-4 py-2 md:py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('worst_round')}
                 >
                   <div className="flex items-center justify-center space-x-1">
-                    <span>Worst</span>
+                    <span className="text-xs md:text-sm">Worst</span>
                     {getSortIcon('worst_round')}
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
+                  className="px-2 md:px-4 py-2 md:py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('consistency')}
                 >
                   <div className="flex items-center justify-center space-x-1">
-                    <span>Consistency</span>
+                    <span className="text-xs md:text-sm">Cons.</span>
                     {getSortIcon('consistency')}
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
+                  className="px-2 md:px-4 py-2 md:py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('match_play')}
                 >
                   <div className="flex items-center justify-center space-x-1">
-                    <span>Match Play</span>
+                    <span className="text-xs md:text-sm">Match</span>
                     {getSortIcon('match_play')}
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
+                  className="px-2 md:px-4 py-2 md:py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('best_course')}
                 >
                   <div className="flex items-center justify-center space-x-1">
-                    <span>Best Course</span>
+                    <span className="text-xs md:text-sm">Course</span>
                     {getSortIcon('best_course')}
                   </div>
                 </th>
@@ -237,69 +237,69 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
                   key={player.player}
                   className={`border-b border-gray-700 hover:bg-gray-700/50 transition-colors ${getRowBgColor(player.position)}`}
                 >
-                  <td className="px-4 py-4">
-                    <div className="flex items-center space-x-2">
+                  <td className="px-2 md:px-4 py-2 md:py-4">
+                    <div className="flex items-center space-x-1 md:space-x-2">
                       {getPositionIcon(player.position, player.player)}
-                      <span className="font-semibold text-gray-100">
+                      <span className="font-semibold text-gray-100 text-sm md:text-base">
                         #{player.position}
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-4">
+                  <td className="px-2 md:px-4 py-2 md:py-4">
                     <div>
-                      <div className="font-semibold text-gray-100">{player.player}</div>
-                      <div className="text-xs text-gray-400">
+                      <div className="font-semibold text-gray-100 text-sm md:text-base">{player.player}</div>
+                      <div className="text-xs text-gray-400 hidden md:block">
                         {player.consistency_rating} consistency
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-4 text-center">
-                    <div className="font-bold text-gray-100">{player.total_score}</div>
-                    <div className="text-xs text-gray-400">
+                  <td className="px-2 md:px-4 py-2 md:py-4 text-center">
+                    <div className="font-bold text-gray-100 text-sm md:text-base">{player.total_score}</div>
+                    <div className="text-xs text-gray-400 hidden md:block">
                       +{player.relative_to_par.toFixed(0)} total
                     </div>
                   </td>
-                  <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-gray-100">
+                  <td className="px-2 md:px-4 py-2 md:py-4 text-center">
+                    <div className="font-semibold text-gray-100 text-sm md:text-base">
                       {player.average.toFixed(1)}
                     </div>
-                    <div className="text-xs text-gray-400">
+                    <div className="text-xs text-gray-400 hidden md:block">
                       +{(player.relative_to_par / 3).toFixed(1)} per round
                     </div>
                   </td>
-                  <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-green-400">
+                  <td className="px-2 md:px-4 py-2 md:py-4 text-center">
+                    <div className="font-semibold text-green-400 text-sm md:text-base">
                       {player.best_round}
                     </div>
-                    <div className="text-xs text-gray-400">lowest</div>
+                    <div className="text-xs text-gray-400 hidden md:block">lowest</div>
                   </td>
-                  <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-red-400">
+                  <td className="px-2 md:px-4 py-2 md:py-4 text-center">
+                    <div className="font-semibold text-red-400 text-sm md:text-base">
                       {player.worst_round}
                     </div>
-                    <div className="text-xs text-gray-400">highest</div>
+                    <div className="text-xs text-gray-400 hidden md:block">highest</div>
                   </td>
-                  <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-blue-400">
+                  <td className="px-2 md:px-4 py-2 md:py-4 text-center">
+                    <div className="font-semibold text-blue-400 text-sm md:text-base">
                       {player.consistency.toFixed(1)}σ
                     </div>
-                    <div className="text-xs text-gray-400">
+                    <div className="text-xs text-gray-400 hidden md:block">
                       {player.consistency_rating.toLowerCase()}
                     </div>
                   </td>
-                  <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-purple-400">
+                  <td className="px-2 md:px-4 py-2 md:py-4 text-center">
+                    <div className="font-semibold text-purple-400 text-sm md:text-base">
                       {player.match_play_points} pts
                     </div>
-                    <div className="text-xs text-gray-400">
+                    <div className="text-xs text-gray-400 hidden md:block">
                       {player.match_play_percentage.toFixed(1)}%
                     </div>
                   </td>
-                  <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-indigo-400">
+                  <td className="px-2 md:px-4 py-2 md:py-4 text-center">
+                    <div className="font-semibold text-indigo-400 text-sm md:text-base">
                       {player.best_course.name.split(' ').map(w => w[0]).join('')}
                     </div>
-                    <div className="text-xs text-gray-400">
+                    <div className="text-xs text-gray-400 hidden md:block">
                       {player.best_course.score.toFixed(0)} avg
                     </div>
                   </td>
@@ -311,30 +311,30 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
       </div>
 
       {/* Quick Stats Summary */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-800 rounded-lg border border-gray-700">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 p-3 md:p-4 bg-gray-800 rounded-lg border border-gray-700">
         <div className="text-center">
-          <div className="text-lg font-bold text-gray-100">
+          <div className="text-base md:text-lg font-bold text-gray-100">
             {Math.min(...leaderboardData.map(p => p.best_round))}
           </div>
-          <div className="text-sm text-gray-400">Tournament Low</div>
+          <div className="text-xs md:text-sm text-gray-400">Tournament Low</div>
         </div>
         <div className="text-center">
-          <div className="text-lg font-bold text-gray-100">
+          <div className="text-base md:text-lg font-bold text-gray-100">
             {(leaderboardData.reduce((sum, p) => sum + p.average, 0) / leaderboardData.length).toFixed(1)}
           </div>
-          <div className="text-sm text-gray-400">Field Average</div>
+          <div className="text-xs md:text-sm text-gray-400">Field Average</div>
         </div>
         <div className="text-center">
-          <div className="text-lg font-bold text-gray-100">
+          <div className="text-base md:text-lg font-bold text-gray-100">
             {leaderboardData.find(p => p.position === 1)?.total_score}
           </div>
-          <div className="text-sm text-gray-400">Winning Score</div>
+          <div className="text-xs md:text-sm text-gray-400">Winning Score</div>
         </div>
         <div className="text-center">
-          <div className="text-lg font-bold text-gray-100">
+          <div className="text-base md:text-lg font-bold text-gray-100">
             {(leaderboardData[leaderboardData.length - 1].total_score - leaderboardData[0].total_score)}
           </div>
-          <div className="text-sm text-gray-400">Score Spread</div>
+          <div className="text-xs md:text-sm text-gray-400">Score Spread</div>
         </div>
       </div>
     </div>

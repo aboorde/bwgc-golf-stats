@@ -16,7 +16,9 @@ interface TeamComparisonChartProps {
   height?: number
 }
 
-const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 }) => {
+const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height }) => {
+  // Responsive height - smaller on mobile
+  const responsiveHeight = height || (typeof window !== 'undefined' && window.innerWidth < 768 ? 300 : 400)
   const teamData = getTeamData()
   const [viewMode, setViewMode] = useState<'total' | 'average'>('average')
 
@@ -110,58 +112,65 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
   return (
     <div className="space-y-6">
       {/* Header and Controls */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 px-4 md:px-0">
         <div>
-          <h2 className="text-2xl font-bold text-gray-100">Team Performance Comparison</h2>
-          <p className="text-sm text-gray-400">Banana Boys vs 3 Lefties make a Righty</p>
+          <h2 className="text-xl md:text-2xl font-bold text-gray-100">Team Performance Comparison</h2>
+          <p className="text-xs md:text-sm text-gray-400">
+            <span className="hidden sm:inline">Banana Boys vs 3 Lefties make a Righty</span>
+            <span className="sm:hidden">Banana Boys vs 3 Lefties</span>
+          </p>
         </div>
         
-        <div className="flex gap-2">
+        <div className="flex gap-1 md:gap-2">
           <button
             onClick={() => setViewMode('average')}
-            className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+            className={`px-2 md:px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition-colors ${
               viewMode === 'average'
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
             }`}
           >
-            Average Score
+            <span className="hidden sm:inline">Average Score</span>
+            <span className="sm:hidden">Avg</span>
           </button>
           <button
             onClick={() => setViewMode('total')}
-            className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+            className={`px-2 md:px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition-colors ${
               viewMode === 'total'
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
             }`}
           >
-            Total Score
+            <span className="hidden sm:inline">Total Score</span>
+            <span className="sm:hidden">Total</span>
           </button>
         </div>
       </div>
 
       {/* Winner Banner */}
-      <div className="p-6 bg-gradient-to-r from-yellow-900/30 to-yellow-800/30 rounded-lg border border-yellow-600/30">
-        <div className="flex items-center justify-center space-x-3">
-          <Trophy className="h-8 w-8 text-yellow-400" />
+      <div className="p-4 md:p-6 bg-gradient-to-r from-yellow-900/30 to-yellow-800/30 rounded-lg border border-yellow-600/30 mx-4 md:mx-0">
+        <div className="flex items-center justify-center space-x-2 md:space-x-3">
+          <Trophy className="h-6 w-6 md:h-8 md:w-8 text-yellow-400" />
           <div className="text-center">
-            <h3 className="text-xl font-bold text-yellow-300">
-              Tournament Winners: {winner.team}
+            <h3 className="text-base md:text-xl font-bold text-yellow-300">
+              <span className="hidden sm:inline">Tournament Winners: {winner.team}</span>
+              <span className="sm:hidden">Winners: {winner.team.split(' ')[0]}</span>
             </h3>
-            <p className="text-sm text-yellow-400">
-              Average score of {winner.averageScore.toFixed(1)} per player
+            <p className="text-xs md:text-sm text-yellow-400">
+              <span className="hidden sm:inline">Average score of {winner.averageScore.toFixed(1)} per player</span>
+              <span className="sm:hidden">{winner.averageScore.toFixed(1)} avg</span>
             </p>
           </div>
-          <Trophy className="h-8 w-8 text-yellow-400" />
+          <Trophy className="h-6 w-6 md:h-8 md:w-8 text-yellow-400" />
         </div>
       </div>
 
       {/* Team Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 px-4 md:px-0">
         {enhancedTeamData.map((team, index) => (
           <div 
             key={team.team}
-            className="p-6 rounded-lg border-2"
+            className="p-4 md:p-6 rounded-lg border-2"
             style={{ borderColor: teamColors[index] }}
           >
             <div className="flex items-center justify-between mb-4">
@@ -173,7 +182,10 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
                   <Users className="h-6 w-6" style={{ color: teamColors[index] }} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-100">{team.team}</h3>
+                  <h3 className="text-base md:text-lg font-bold text-gray-100">
+                    <span className="hidden sm:inline">{team.team}</span>
+                    <span className="sm:hidden">{team.team.split(' ')[0]}</span>
+                  </h3>
                   {team === winner && (
                     <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-900/30 text-yellow-300">
                       <Trophy className="h-3 w-3 mr-1" />
@@ -230,11 +242,11 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
       </div>
 
       {/* Comparison Chart */}
-      <div className="bg-gray-800 p-6 rounded-lg border border-gray-700">
-        <h3 className="text-lg font-semibold text-gray-100 mb-4">
+      <div className="bg-gray-800 p-4 md:p-6 rounded-lg border border-gray-700 mx-4 md:mx-0">
+        <h3 className="text-base md:text-lg font-semibold text-gray-100 mb-3 md:mb-4">
           {viewMode === 'total' ? 'Total Team Scores' : 'Average Player Scores'}
         </h3>
-        <ResponsiveContainer width="100%" height={height}>
+        <ResponsiveContainer width="100%" height={responsiveHeight}>
           <BarChart 
             data={chartData}
             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}

@@ -16,7 +16,9 @@ interface CourseDifficultyChartProps {
   height?: number
 }
 
-const CourseDifficultyChart: React.FC<CourseDifficultyChartProps> = ({ height = 400 }) => {
+const CourseDifficultyChart: React.FC<CourseDifficultyChartProps> = ({ height }) => {
+  // Responsive height - smaller on mobile
+  const responsiveHeight = height || (typeof window !== 'undefined' && window.innerWidth < 768 ? 300 : 400)
   const courseData = getCourseData()
   const [sortBy, setSortBy] = useState<'difficulty' | 'average' | 'name'>('difficulty')
 
@@ -201,7 +203,7 @@ const CourseDifficultyChart: React.FC<CourseDifficultyChartProps> = ({ height = 
         <h3 className="text-lg font-semibold text-gray-900 mb-4">
           Average Scores by Course
         </h3>
-        <ResponsiveContainer width="100%" height={height}>
+        <ResponsiveContainer width="100%" height={responsiveHeight}>
           <BarChart 
             data={sortedCourses}
             margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
