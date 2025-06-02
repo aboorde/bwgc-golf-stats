@@ -85,9 +85,6 @@ const Dashboard: React.FC = () => {
         <TabsContent value="matchplay" className="mt-6 md:mt-8">
           <div className="space-y-6 md:space-y-8">
             <MatchPlayResults />
-            <Card title="Head-to-Head Match Play Matrix" subtitle="Complete player vs player results">
-              <MatchPlayMatrix />
-            </Card>
           </div>
         </TabsContent>
       </Tabs>
