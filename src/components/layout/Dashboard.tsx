@@ -21,7 +21,7 @@ const Dashboard: React.FC = () => {
       {/* Tournament Header */}
       <div className="text-center space-y-3 px-4">
         <h1 className="text-2xl md:text-4xl font-bold text-gray-100">
-          Myrtle Beach Tournament 2024
+          Myrtle Beach Tournament 2023
         </h1>
         <p className="text-sm md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
           <span className="hidden sm:inline">Comprehensive analytics from our 4-day golf adventure featuring 8 players, 

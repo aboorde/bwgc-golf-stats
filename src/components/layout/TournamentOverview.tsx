@@ -42,7 +42,7 @@ const TournamentOverview: React.FC = () => {
         <StatCard
           title="Total Rounds"
           value={data.tournament_summary.total_rounds.toString()}
-          subtitle="Myrtle Beach 2024"
+          subtitle="Myrtle Beach 2023"
           icon={Calendar}
         />
       </div>
