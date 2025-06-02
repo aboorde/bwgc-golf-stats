@@ -2,6 +2,7 @@ import { PlayerService } from './PlayerService'
 import { TeamService } from './TeamService'
 import { CourseService } from './CourseService'
 import { TournamentService } from './TournamentService'
+import { HoleAnalysisService } from './HoleAnalysisService'
 
 /**
  * Central service container that manages all service instances
@@ -14,12 +15,14 @@ export class ServiceContainer {
   private _teamService: TeamService
   private _courseService: CourseService
   private _tournamentService: TournamentService
+  private _holeAnalysisService: HoleAnalysisService
 
   private constructor() {
     this._playerService = new PlayerService()
     this._teamService = new TeamService()
     this._courseService = new CourseService()
     this._tournamentService = new TournamentService()
+    this._holeAnalysisService = new HoleAnalysisService()
   }
 
   /**
@@ -61,6 +64,13 @@ export class ServiceContainer {
   }
 
   /**
+   * Get the hole analysis service
+   */
+  public get holeAnalysis(): HoleAnalysisService {
+    return this._holeAnalysisService
+  }
+
+  /**
    * Clear all caches (useful for testing or data refresh)
    */
   public clearCaches(): void {
@@ -69,6 +79,7 @@ export class ServiceContainer {
     this._teamService = new TeamService()
     this._courseService = new CourseService()
     this._tournamentService = new TournamentService()
+    this._holeAnalysisService = new HoleAnalysisService()
   }
 }
 

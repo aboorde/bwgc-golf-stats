@@ -221,22 +221,26 @@ export class PlayerService extends BaseService {
   private getConsistencyStats(playerName: PlayerName): PlayerConsistencyStats {
     const rawStats = this.data.player_statistics[playerName]
     const consistency = rawStats?.consistency
+    const standardDeviation = consistency?.score_standard_deviation || 0
     
-    // Convert consistency rating from string to number
+    // Calculate consistency rating based on actual standard deviation
+    // Lower standard deviation = more consistent = higher rating
+    // Golf scoring: 0-3 = Excellent, 3-6 = Very Good, 6-9 = Good, 9-12 = Fair, 12+ = Poor
     let consistencyRating = 0
-    if (consistency?.consistency_rating) {
-      switch (consistency.consistency_rating) {
-        case 'Excellent': consistencyRating = 95; break
-        case 'Very Good': consistencyRating = 85; break
-        case 'Good': consistencyRating = 75; break
-        case 'Fair': consistencyRating = 65; break
-        case 'Poor': consistencyRating = 45; break
-        default: consistencyRating = 50
-      }
+    if (standardDeviation <= 3) {
+      consistencyRating = Math.round((100 - (standardDeviation * 5)) * 10) / 10  // 85-100
+    } else if (standardDeviation <= 6) {
+      consistencyRating = Math.round((85 - ((standardDeviation - 3) * 5)) * 10) / 10  // 70-85
+    } else if (standardDeviation <= 9) {
+      consistencyRating = Math.round((70 - ((standardDeviation - 6) * 5)) * 10) / 10  // 55-70
+    } else if (standardDeviation <= 12) {
+      consistencyRating = Math.round((55 - ((standardDeviation - 9) * 5)) * 10) / 10  // 40-55
+    } else {
+      consistencyRating = Math.max(10, Math.round((40 - ((standardDeviation - 12) * 2)) * 10) / 10)  // 10-40
     }
     
     return {
-      standardDeviation: consistency?.score_standard_deviation || 0,
+      standardDeviation,
       consistencyRating,
       scoreSpread: (rawStats?.basic_stats?.worst_round || 0) - (rawStats?.basic_stats?.best_round || 0)
     }

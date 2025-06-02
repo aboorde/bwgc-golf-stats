@@ -3,6 +3,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/Tabs'
 import TournamentOverview from './TournamentOverview'
 import PlayerStats from './PlayerStats'
 import CourseAnalysis from './CourseAnalysis'
+import HoleByHoleAnalysis from './HoleByHoleAnalysis'
 import MatchPlayResults from './MatchPlayResults'
 import PlayerProgressionChart from '../charts/PlayerProgressionChart'
 import ScoreDistributionChart from '../charts/ScoreDistributionChart'
@@ -32,11 +33,12 @@ const Dashboard: React.FC = () => {
       {/* Main Dashboard Tabs */}
       <Tabs defaultValue="overview" className="w-full">
         <div className="overflow-x-auto">
-          <TabsList className="grid w-full grid-cols-5 md:grid-cols-5 min-w-max md:min-w-0">
+          <TabsList className="grid w-full grid-cols-6 md:grid-cols-6 min-w-max md:min-w-0">
             <TabsTrigger value="overview" className="text-xs md:text-sm px-2 md:px-4">Overview</TabsTrigger>
             <TabsTrigger value="leaderboard" className="text-xs md:text-sm px-2 md:px-4">Leaderboard</TabsTrigger>
             <TabsTrigger value="players" className="text-xs md:text-sm px-2 md:px-4">Players</TabsTrigger>
             <TabsTrigger value="courses" className="text-xs md:text-sm px-2 md:px-4">Courses</TabsTrigger>
+            <TabsTrigger value="holes" className="text-xs md:text-sm px-2 md:px-4">Holes</TabsTrigger>
             <TabsTrigger value="matchplay" className="text-xs md:text-sm px-2 md:px-4">Match Play</TabsTrigger>
           </TabsList>
         </div>
@@ -78,6 +80,10 @@ const Dashboard: React.FC = () => {
               <CourseDifficultyChart />
             </Card>
           </div>
+        </TabsContent>
+
+        <TabsContent value="holes" className="mt-6 md:mt-8">
+          <HoleByHoleAnalysis />
         </TabsContent>
 
         <TabsContent value="matchplay" className="mt-6 md:mt-8">

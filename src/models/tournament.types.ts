@@ -15,6 +15,51 @@ export interface CourseInfo {
   yardage: number
   format: string
   day: DayNumber
+  holes?: HoleInfo[]
+}
+
+// Hole-by-hole analysis interfaces
+export interface HoleInfo {
+  number: number
+  par: number
+  yardage: number
+  handicap: number // 1-18 difficulty ranking
+  slopeContribution: number // portion of course slope rating
+  holeType: HoleType
+  riskRewardLevel: 'Conservative' | 'Moderate' | 'Aggressive'
+  strategicElements: string[] // ['water', 'bunkers', 'dogleg-left', etc.]
+  description?: string
+}
+
+export type HoleType = 
+  | 'short-par-3'    // Under 150 yards
+  | 'long-par-3'     // 150+ yards  
+  | 'short-par-4'    // Under 350 yards (driveable)
+  | 'medium-par-4'   // 350-420 yards
+  | 'long-par-4'     // 420+ yards
+  | 'short-par-5'    // Under 500 yards (reachable)
+  | 'long-par-5'     // 500+ yards
+
+export interface HolePerformance {
+  holeNumber: number
+  par: number
+  playerScores: Map<PlayerName, HoleScore>
+  averageScore: number
+  birdieFrequency: number
+  parFrequency: number
+  bogeyFrequency: number
+  doubleBogeyPlusFrequency: number
+  difficultyRating: number // 1-18 actual difficulty vs handicap
+  scoringIndex: number // how much harder/easier than handicap suggests
+}
+
+export interface HoleScore {
+  strokes: number
+  relativeToPar: number
+  putts?: number
+  fairwayHit?: boolean
+  greenInRegulation?: boolean
+  chipsAndPitches?: number
 }
 
 export interface CourseStatistics {
@@ -228,4 +273,74 @@ export interface RawTournamentData {
   performance_trends: Record<PlayerName, any>
   course_analysis: any
   tournament_insights: any
+}
+
+// Hole-by-hole analysis interfaces
+export interface HoleAnalytics {
+  course: CourseName
+  holes: HolePerformance[]
+  courseDifficulty: HoleDifficultyAnalysis
+  playerPerformance: PlayerHolePerformance[]
+  strategicInsights: StrategicInsight[]
+  riskRewardAnalysis: RiskRewardAnalysis
+}
+
+export interface HoleDifficultyAnalysis {
+  hardestHoles: { hole: number, avgOverPar: number, handicap: number }[]
+  easiestHoles: { hole: number, avgOverPar: number, handicap: number }[]
+  handicapAccuracy: { hole: number, expectedDifficulty: number, actualDifficulty: number }[]
+  birdieOpportunities: { hole: number, birdieRate: number, par: number }[]
+  troubleSpots: { hole: number, bogeyPlusRate: number, par: number }[]
+}
+
+export interface PlayerHolePerformance {
+  playerName: PlayerName
+  holeScores: Map<number, HoleScore>
+  strengths: HoleType[]
+  weaknesses: HoleType[]
+  consistencyByHoleType: Map<HoleType, number>
+  riskManagement: 'Conservative' | 'Balanced' | 'Aggressive'
+  optimalStrategy: Map<number, string> // hole -> strategy recommendation
+}
+
+export interface StrategicInsight {
+  holeNumber: number
+  par: number
+  insight: string
+  category: 'risk-reward' | 'course-management' | 'scoring-opportunity' | 'damage-control'
+  recommendedStrategy: string
+  alternativeStrategies?: string[]
+}
+
+export interface RiskRewardAnalysis {
+  aggressiveHoles: {
+    hole: number
+    riskLevel: number
+    avgReward: number
+    avgPenalty: number
+    recommendedStrategy: string
+  }[]
+  conservativeHoles: {
+    hole: number
+    parProtectionRate: number
+    bogeyAvoidanceStrategy: string
+  }[]
+  scoringOpportunities: {
+    hole: number
+    birdieRate: number
+    eagleRate: number
+    optimalApproach: string
+  }[]
+}
+
+export interface HoleVisualizationData {
+  holeNumber: number
+  par: number
+  yardage: number
+  handicap: number
+  playerScores: { player: PlayerName, score: number, color: string }[]
+  averageScore: number
+  difficulty: 'Easy' | 'Moderate' | 'Hard' | 'Very Hard'
+  birdieRate: number
+  bogeyRate: number
 }
