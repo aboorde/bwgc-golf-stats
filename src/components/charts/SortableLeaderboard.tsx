@@ -125,16 +125,16 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
   }
 
   const getPositionIcon = (position: number, player: string) => {
-    if (position === 1) return <Trophy className="h-5 w-5 text-yellow-500" />
+    if (position === 1) return <Trophy className="h-5 w-5 text-yellow-400" />
     if (position === 2) return <Target className="h-5 w-5 text-gray-400" />
-    if (position === 3) return <Zap className="h-5 w-5 text-orange-500" />
+    if (position === 3) return <Zap className="h-5 w-5 text-orange-400" />
     return null
   }
 
   const getRowBgColor = (position: number) => {
-    if (position === 1) return 'bg-gradient-to-r from-yellow-50 to-yellow-100'
-    if (position === 2) return 'bg-gradient-to-r from-gray-50 to-gray-100'
-    if (position === 3) return 'bg-gradient-to-r from-orange-50 to-orange-100'
+    if (position === 1) return 'bg-gradient-to-r from-yellow-900/20 to-yellow-800/20'
+    if (position === 2) return 'bg-gradient-to-r from-gray-700/20 to-gray-600/20'
+    if (position === 3) return 'bg-gradient-to-r from-orange-900/20 to-orange-800/20'
     return ''
   }
 
@@ -142,20 +142,20 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
     <div className="space-y-4">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
-        <div className="text-sm text-gray-600">
+        <h2 className="text-2xl font-bold text-gray-100">{title}</h2>
+        <div className="text-sm text-gray-400">
           Click columns to sort • {leaderboardData.length} players
         </div>
       </div>
 
       {/* Leaderboard Table */}
-      <div className="bg-white rounded-lg border shadow-sm overflow-hidden">
+      <div className="bg-gray-800 rounded-lg border border-gray-700 shadow-sm overflow-hidden">
         <div className="overflow-x-auto" style={{ maxHeight: height }}>
           <table className="w-full">
-            <thead className="bg-gray-50 sticky top-0 z-10">
+            <thead className="bg-gray-700 sticky top-0 z-10">
               <tr>
                 <th 
-                  className="px-4 py-3 text-left font-semibold text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors"
+                  className="px-4 py-3 text-left font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('position')}
                 >
                   <div className="flex items-center space-x-1">
@@ -163,11 +163,11 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
                     {getSortIcon('position')}
                   </div>
                 </th>
-                <th className="px-4 py-3 text-left font-semibold text-gray-700">
+                <th className="px-4 py-3 text-left font-semibold text-gray-200">
                   Player
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors"
+                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('total_score')}
                 >
                   <div className="flex items-center justify-center space-x-1">
@@ -176,7 +176,7 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors"
+                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('average')}
                 >
                   <div className="flex items-center justify-center space-x-1">
@@ -185,7 +185,7 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors"
+                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('best_round')}
                 >
                   <div className="flex items-center justify-center space-x-1">
@@ -194,7 +194,7 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors"
+                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('worst_round')}
                 >
                   <div className="flex items-center justify-center space-x-1">
@@ -203,7 +203,7 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors"
+                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('consistency')}
                 >
                   <div className="flex items-center justify-center space-x-1">
@@ -212,7 +212,7 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors"
+                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('match_play')}
                 >
                   <div className="flex items-center justify-center space-x-1">
@@ -221,7 +221,7 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
                   </div>
                 </th>
                 <th 
-                  className="px-4 py-3 text-center font-semibold text-gray-700 cursor-pointer hover:bg-gray-100 transition-colors"
+                  className="px-4 py-3 text-center font-semibold text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors"
                   onClick={() => handleSort('best_course')}
                 >
                   <div className="flex items-center justify-center space-x-1">
@@ -235,71 +235,71 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
               {sortedData.map((player, index) => (
                 <tr 
                   key={player.player}
-                  className={`border-b border-gray-100 hover:bg-gray-50 transition-colors ${getRowBgColor(player.position)}`}
+                  className={`border-b border-gray-700 hover:bg-gray-700/50 transition-colors ${getRowBgColor(player.position)}`}
                 >
                   <td className="px-4 py-4">
                     <div className="flex items-center space-x-2">
                       {getPositionIcon(player.position, player.player)}
-                      <span className="font-semibold text-gray-900">
+                      <span className="font-semibold text-gray-100">
                         #{player.position}
                       </span>
                     </div>
                   </td>
                   <td className="px-4 py-4">
                     <div>
-                      <div className="font-semibold text-gray-900">{player.player}</div>
-                      <div className="text-xs text-gray-500">
+                      <div className="font-semibold text-gray-100">{player.player}</div>
+                      <div className="text-xs text-gray-400">
                         {player.consistency_rating} consistency
                       </div>
                     </div>
                   </td>
                   <td className="px-4 py-4 text-center">
-                    <div className="font-bold text-gray-900">{player.total_score}</div>
-                    <div className="text-xs text-gray-500">
+                    <div className="font-bold text-gray-100">{player.total_score}</div>
+                    <div className="text-xs text-gray-400">
                       +{player.relative_to_par.toFixed(0)} total
                     </div>
                   </td>
                   <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-gray-900">
+                    <div className="font-semibold text-gray-100">
                       {player.average.toFixed(1)}
                     </div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-gray-400">
                       +{(player.relative_to_par / 3).toFixed(1)} per round
                     </div>
                   </td>
                   <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-green-600">
+                    <div className="font-semibold text-green-400">
                       {player.best_round}
                     </div>
-                    <div className="text-xs text-gray-500">lowest</div>
+                    <div className="text-xs text-gray-400">lowest</div>
                   </td>
                   <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-red-600">
+                    <div className="font-semibold text-red-400">
                       {player.worst_round}
                     </div>
-                    <div className="text-xs text-gray-500">highest</div>
+                    <div className="text-xs text-gray-400">highest</div>
                   </td>
                   <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-blue-600">
+                    <div className="font-semibold text-blue-400">
                       {player.consistency.toFixed(1)}σ
                     </div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-gray-400">
                       {player.consistency_rating.toLowerCase()}
                     </div>
                   </td>
                   <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-purple-600">
+                    <div className="font-semibold text-purple-400">
                       {player.match_play_points} pts
                     </div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-gray-400">
                       {player.match_play_percentage.toFixed(1)}%
                     </div>
                   </td>
                   <td className="px-4 py-4 text-center">
-                    <div className="font-semibold text-indigo-600">
+                    <div className="font-semibold text-indigo-400">
                       {player.best_course.name.split(' ').map(w => w[0]).join('')}
                     </div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-gray-400">
                       {player.best_course.score.toFixed(0)} avg
                     </div>
                   </td>
@@ -311,30 +311,30 @@ const SortableLeaderboard: React.FC<SortableLeaderboardProps> = ({
       </div>
 
       {/* Quick Stats Summary */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-800 rounded-lg border border-gray-700">
         <div className="text-center">
-          <div className="text-lg font-bold text-gray-900">
+          <div className="text-lg font-bold text-gray-100">
             {Math.min(...leaderboardData.map(p => p.best_round))}
           </div>
-          <div className="text-sm text-gray-600">Tournament Low</div>
+          <div className="text-sm text-gray-400">Tournament Low</div>
         </div>
         <div className="text-center">
-          <div className="text-lg font-bold text-gray-900">
+          <div className="text-lg font-bold text-gray-100">
             {(leaderboardData.reduce((sum, p) => sum + p.average, 0) / leaderboardData.length).toFixed(1)}
           </div>
-          <div className="text-sm text-gray-600">Field Average</div>
+          <div className="text-sm text-gray-400">Field Average</div>
         </div>
         <div className="text-center">
-          <div className="text-lg font-bold text-gray-900">
+          <div className="text-lg font-bold text-gray-100">
             {leaderboardData.find(p => p.position === 1)?.total_score}
           </div>
-          <div className="text-sm text-gray-600">Winning Score</div>
+          <div className="text-sm text-gray-400">Winning Score</div>
         </div>
         <div className="text-center">
-          <div className="text-lg font-bold text-gray-900">
+          <div className="text-lg font-bold text-gray-100">
             {(leaderboardData[leaderboardData.length - 1].total_score - leaderboardData[0].total_score)}
           </div>
-          <div className="text-sm text-gray-600">Score Spread</div>
+          <div className="text-sm text-gray-400">Score Spread</div>
         </div>
       </div>
     </div>

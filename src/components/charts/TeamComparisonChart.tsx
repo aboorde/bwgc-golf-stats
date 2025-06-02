@@ -69,32 +69,32 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
     if (active && payload && payload.length) {
       const data = payload[0].payload
       return (
-        <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-lg">
-          <p className="font-semibold text-gray-900 mb-3">{label}</p>
+        <div className="bg-gray-800 p-4 border border-gray-600 rounded-lg shadow-lg">
+          <p className="font-semibold text-gray-100 mb-3">{label}</p>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-700">Total Score:</span>
-              <span className="font-medium">{data.totalScore}</span>
+              <span className="text-gray-300">Total Score:</span>
+              <span className="font-medium text-gray-100">{data.totalScore}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-700">Average Score:</span>
-              <span className="font-medium">{data.averageScore.toFixed(1)}</span>
+              <span className="text-gray-300">Average Score:</span>
+              <span className="font-medium text-gray-100">{data.averageScore.toFixed(1)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-700">Best Individual:</span>
-              <span className="font-medium text-green-600">{data.bestScore}</span>
+              <span className="text-gray-300">Best Individual:</span>
+              <span className="font-medium text-green-400">{data.bestScore}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-700">Worst Individual:</span>
-              <span className="font-medium text-red-600">{data.worstScore}</span>
+              <span className="text-gray-300">Worst Individual:</span>
+              <span className="font-medium text-red-400">{data.worstScore}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-700">Team Consistency:</span>
-              <span className="font-medium">{data.consistency.toFixed(1)} σ</span>
+              <span className="text-gray-300">Team Consistency:</span>
+              <span className="font-medium text-gray-100">{data.consistency.toFixed(1)} σ</span>
             </div>
-            <div className="mt-3 pt-2 border-t">
-              <p className="text-xs text-gray-600 mb-1">Players:</p>
-              <p className="text-xs text-gray-700">{data.players.join(', ')}</p>
+            <div className="mt-3 pt-2 border-t border-gray-600">
+              <p className="text-xs text-gray-400 mb-1">Players:</p>
+              <p className="text-xs text-gray-300">{data.players.join(', ')}</p>
             </div>
           </div>
         </div>
@@ -112,8 +112,8 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
       {/* Header and Controls */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">Team Performance Comparison</h2>
-          <p className="text-sm text-gray-600">Banana Boys vs 3 Lefties make a Righty</p>
+          <h2 className="text-2xl font-bold text-gray-100">Team Performance Comparison</h2>
+          <p className="text-sm text-gray-400">Banana Boys vs 3 Lefties make a Righty</p>
         </div>
         
         <div className="flex gap-2">
@@ -122,7 +122,7 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
             className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
               viewMode === 'average'
                 ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
             }`}
           >
             Average Score
@@ -132,7 +132,7 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
             className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
               viewMode === 'total'
                 ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
             }`}
           >
             Total Score
@@ -141,18 +141,18 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
       </div>
 
       {/* Winner Banner */}
-      <div className="p-6 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg border border-yellow-200">
+      <div className="p-6 bg-gradient-to-r from-yellow-900/30 to-yellow-800/30 rounded-lg border border-yellow-600/30">
         <div className="flex items-center justify-center space-x-3">
-          <Trophy className="h-8 w-8 text-yellow-600" />
+          <Trophy className="h-8 w-8 text-yellow-400" />
           <div className="text-center">
-            <h3 className="text-xl font-bold text-yellow-800">
+            <h3 className="text-xl font-bold text-yellow-300">
               Tournament Winners: {winner.team}
             </h3>
-            <p className="text-sm text-yellow-700">
+            <p className="text-sm text-yellow-400">
               Average score of {winner.averageScore.toFixed(1)} per player
             </p>
           </div>
-          <Trophy className="h-8 w-8 text-yellow-600" />
+          <Trophy className="h-8 w-8 text-yellow-400" />
         </div>
       </div>
 
@@ -173,9 +173,9 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
                   <Users className="h-6 w-6" style={{ color: teamColors[index] }} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">{team.team}</h3>
+                  <h3 className="text-lg font-bold text-gray-100">{team.team}</h3>
                   {team === winner && (
-                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-900/30 text-yellow-300">
                       <Trophy className="h-3 w-3 mr-1" />
                       Winners
                     </span>
@@ -185,44 +185,44 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
             </div>
 
             <div className="grid grid-cols-2 gap-4 mb-4">
-              <div className="text-center p-3 bg-gray-50 rounded">
-                <div className="text-2xl font-bold text-gray-900">
+              <div className="text-center p-3 bg-gray-800 rounded">
+                <div className="text-2xl font-bold text-gray-100">
                   {team.averageScore.toFixed(1)}
                 </div>
-                <div className="text-sm text-gray-600">Avg Score</div>
+                <div className="text-sm text-gray-400">Avg Score</div>
               </div>
-              <div className="text-center p-3 bg-gray-50 rounded">
-                <div className="text-2xl font-bold text-gray-900">
+              <div className="text-center p-3 bg-gray-800 rounded">
+                <div className="text-2xl font-bold text-gray-100">
                   {team.totalScore}
                 </div>
-                <div className="text-sm text-gray-600">Total Score</div>
+                <div className="text-sm text-gray-400">Total Score</div>
               </div>
             </div>
 
             {/* Team Member Details */}
             <div className="space-y-2">
-              <h4 className="font-semibold text-gray-900 text-sm">Team Members:</h4>
+              <h4 className="font-semibold text-gray-100 text-sm">Team Members:</h4>
               {team.memberScores.map(member => (
-                <div key={member.player} className="flex justify-between items-center p-2 bg-gray-50 rounded text-sm">
-                  <span className="font-medium text-gray-900">{member.player}</span>
-                  <span className="text-gray-600">{member.average.toFixed(1)} avg</span>
+                <div key={member.player} className="flex justify-between items-center p-2 bg-gray-800 rounded text-sm">
+                  <span className="font-medium text-gray-100">{member.player}</span>
+                  <span className="text-gray-400">{member.average.toFixed(1)} avg</span>
                 </div>
               ))}
             </div>
 
             {/* Team Stats */}
-            <div className="mt-4 pt-4 border-t grid grid-cols-3 gap-4 text-center">
+            <div className="mt-4 pt-4 border-t border-gray-600 grid grid-cols-3 gap-4 text-center">
               <div>
-                <div className="text-lg font-bold text-green-600">{team.bestIndividualScore}</div>
-                <div className="text-xs text-gray-500">Best Round</div>
+                <div className="text-lg font-bold text-green-400">{team.bestIndividualScore}</div>
+                <div className="text-xs text-gray-400">Best Round</div>
               </div>
               <div>
-                <div className="text-lg font-bold text-red-600">{team.worstIndividualScore}</div>
-                <div className="text-xs text-gray-500">Worst Round</div>
+                <div className="text-lg font-bold text-red-400">{team.worstIndividualScore}</div>
+                <div className="text-xs text-gray-400">Worst Round</div>
               </div>
               <div>
-                <div className="text-lg font-bold text-blue-600">{team.teamConsistency.toFixed(1)}</div>
-                <div className="text-xs text-gray-500">Consistency</div>
+                <div className="text-lg font-bold text-blue-400">{team.teamConsistency.toFixed(1)}</div>
+                <div className="text-xs text-gray-400">Consistency</div>
               </div>
             </div>
           </div>
@@ -230,8 +230,8 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
       </div>
 
       {/* Comparison Chart */}
-      <div className="bg-white p-6 rounded-lg border">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+      <div className="bg-gray-800 p-6 rounded-lg border border-gray-700">
+        <h3 className="text-lg font-semibold text-gray-100 mb-4">
           {viewMode === 'total' ? 'Total Team Scores' : 'Average Player Scores'}
         </h3>
         <ResponsiveContainer width="100%" height={height}>
@@ -239,15 +239,15 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
             data={chartData}
             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
             <XAxis 
               dataKey="team"
-              stroke="#666"
-              tick={{ fontSize: 12 }}
+              stroke="#9CA3AF"
+              tick={{ fontSize: 12, fill: '#9CA3AF' }}
             />
             <YAxis 
-              stroke="#666"
-              tick={{ fontSize: 12 }}
+              stroke="#9CA3AF"
+              tick={{ fontSize: 12, fill: '#9CA3AF' }}
               label={{ 
                 value: viewMode === 'total' ? 'Total Score' : 'Average Score', 
                 angle: -90, 
@@ -258,7 +258,7 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
             <Bar 
               dataKey="value" 
               radius={[4, 4, 0, 0]}
-              stroke="#fff"
+              stroke="#1F2937"
               strokeWidth={2}
             >
               {chartData.map((entry, index) => (
@@ -272,27 +272,27 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
       {/* Head-to-Head Analysis */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Score Comparison */}
-        <div className="p-6 bg-blue-50 rounded-lg">
-          <h4 className="font-semibold text-blue-900 mb-4 flex items-center">
+        <div className="p-6 bg-blue-900/20 rounded-lg border border-blue-800/30">
+          <h4 className="font-semibold text-blue-300 mb-4 flex items-center">
             <Target className="h-5 w-5 mr-2" />
             Score Comparison
           </h4>
           <div className="space-y-4">
-            <div className="flex justify-between items-center p-3 bg-white rounded border">
-              <span className="font-medium text-gray-900">Winning Margin</span>
-              <span className="font-bold text-blue-600">
+            <div className="flex justify-between items-center p-3 bg-gray-800 rounded border border-gray-700">
+              <span className="font-medium text-gray-100">Winning Margin</span>
+              <span className="font-bold text-blue-400">
                 {Math.abs(enhancedTeamData[0].averageScore - enhancedTeamData[1].averageScore).toFixed(1)} strokes
               </span>
             </div>
-            <div className="flex justify-between items-center p-3 bg-white rounded border">
-              <span className="font-medium text-gray-900">Best Individual Round</span>
-              <span className="font-bold text-green-600">
+            <div className="flex justify-between items-center p-3 bg-gray-800 rounded border border-gray-700">
+              <span className="font-medium text-gray-100">Best Individual Round</span>
+              <span className="font-bold text-green-400">
                 {Math.min(...enhancedTeamData.map(t => t.bestIndividualScore))}
               </span>
             </div>
-            <div className="flex justify-between items-center p-3 bg-white rounded border">
-              <span className="font-medium text-gray-900">Most Consistent Team</span>
-              <span className="font-bold text-purple-600">
+            <div className="flex justify-between items-center p-3 bg-gray-800 rounded border border-gray-700">
+              <span className="font-medium text-gray-100">Most Consistent Team</span>
+              <span className="font-bold text-purple-400">
                 {enhancedTeamData.reduce((best, current) => 
                   current.teamConsistency < best.teamConsistency ? current : best
                 ).team}
@@ -302,29 +302,29 @@ const TeamComparisonChart: React.FC<TeamComparisonChartProps> = ({ height = 400 
         </div>
 
         {/* Performance Insights */}
-        <div className="p-6 bg-green-50 rounded-lg">
-          <h4 className="font-semibold text-green-900 mb-4 flex items-center">
+        <div className="p-6 bg-green-900/20 rounded-lg border border-green-800/30">
+          <h4 className="font-semibold text-green-300 mb-4 flex items-center">
             <TrendingDown className="h-5 w-5 mr-2" />
             Performance Insights
           </h4>
           <div className="space-y-3 text-sm">
-            <div className="p-3 bg-white rounded border">
-              <p className="font-medium text-gray-900 mb-1">Tournament Winner</p>
-              <p className="text-gray-700">
+            <div className="p-3 bg-gray-800 rounded border border-gray-700">
+              <p className="font-medium text-gray-100 mb-1">Tournament Winner</p>
+              <p className="text-gray-300">
                 <strong>{winner.team}</strong> won with an average score of {winner.averageScore.toFixed(1)} strokes per player
               </p>
             </div>
             
-            <div className="p-3 bg-white rounded border">
-              <p className="font-medium text-gray-900 mb-1">Closest Competition</p>
-              <p className="text-gray-700">
+            <div className="p-3 bg-gray-800 rounded border border-gray-700">
+              <p className="font-medium text-gray-100 mb-1">Closest Competition</p>
+              <p className="text-gray-300">
                 The teams were separated by only {Math.abs(enhancedTeamData[0].averageScore - enhancedTeamData[1].averageScore).toFixed(1)} strokes on average
               </p>
             </div>
 
-            <div className="p-3 bg-white rounded border">
-              <p className="font-medium text-gray-900 mb-1">Team Strengths</p>
-              <p className="text-gray-700">
+            <div className="p-3 bg-gray-800 rounded border border-gray-700">
+              <p className="font-medium text-gray-100 mb-1">Team Strengths</p>
+              <p className="text-gray-300">
                 Both teams showed competitive play with strong individual performances throughout the tournament
               </p>
             </div>
