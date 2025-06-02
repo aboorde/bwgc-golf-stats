@@ -1,0 +1,997 @@
+{
+  "tournament_summary": {
+    "winner": "Mike",
+    "winning_score": 269,
+    "leaderboard": [
+      {
+        "player": "Mike",
+        "total_score": 269,
+        "rounds_played": 3,
+        "scoring_average": 89.67
+      },
+      {
+        "player": "Jimbo",
+        "total_score": 285,
+        "rounds_played": 3,
+        "scoring_average": 95.0
+      },
+      {
+        "player": "Dave",
+        "total_score": 298,
+        "rounds_played": 3,
+        "scoring_average": 99.33
+      },
+      {
+        "player": "Ryan",
+        "total_score": 312,
+        "rounds_played": 3,
+        "scoring_average": 104.0
+      },
+      {
+        "player": "Nixon",
+        "total_score": 333,
+        "rounds_played": 3,
+        "scoring_average": 111.0
+      },
+      {
+        "player": "AJ",
+        "total_score": 367,
+        "rounds_played": 3,
+        "scoring_average": 122.33
+      },
+      {
+        "player": "Todd",
+        "total_score": 371,
+        "rounds_played": 3,
+        "scoring_average": 123.67
+      },
+      {
+        "player": "Doug",
+        "total_score": 386,
+        "rounds_played": 3,
+        "scoring_average": 128.67
+      }
+    ],
+    "total_rounds": 24,
+    "courses_played": 3
+  },
+  "player_statistics": {
+    "Jimbo": {
+      "basic_stats": {
+        "total_score": 285,
+        "rounds_played": 3,
+        "scoring_average": 95.0,
+        "average_relative_to_par": 23.0,
+        "best_round": 92,
+        "worst_round": 100,
+        "best_relative_round": 20,
+        "worst_relative_round": 28
+      },
+      "consistency": {
+        "score_standard_deviation": 4.36,
+        "relative_par_standard_deviation": 4.36,
+        "consistency_rating": "Excellent"
+      },
+      "detailed_performance": {
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "double_bogeys": 0,
+        "triple_bogeys": 0,
+        "big_numbers": 0,
+        "under_par_percentage": 0,
+        "par_or_better_percentage": 0
+      },
+      "match_play_performance": {
+        "total_points": 7.0,
+        "possible_points": 18,
+        "win_percentage": 38.9
+      },
+      "daily_performance": {
+        "day_2": {
+          "score": 100,
+          "par": 72,
+          "relative_to_par": 28,
+          "course": "Barefoot Dye",
+          "format": "Match Play"
+        },
+        "day_3": {
+          "score": 93,
+          "par": 72,
+          "relative_to_par": 21,
+          "course": "Aberdeen Country Club",
+          "format": "Best Ball"
+        },
+        "day_4": {
+          "score": 92,
+          "par": 72,
+          "relative_to_par": 20,
+          "course": "Arcadian Shores",
+          "format": "Stableford"
+        }
+      },
+      "course_performance": {
+        "Barefoot Dye": {
+          "rounds_played": 1,
+          "average_score": 100.0,
+          "average_relative_to_par": 28.0,
+          "best_round": 100,
+          "performance_rating": "Struggled"
+        },
+        "Aberdeen Country Club": {
+          "rounds_played": 1,
+          "average_score": 93.0,
+          "average_relative_to_par": 21.0,
+          "best_round": 93,
+          "performance_rating": "Struggled"
+        },
+        "Arcadian Shores": {
+          "rounds_played": 1,
+          "average_score": 92.0,
+          "average_relative_to_par": 20.0,
+          "best_round": 92,
+          "performance_rating": "Struggled"
+        }
+      }
+    },
+    "Mike": {
+      "basic_stats": {
+        "total_score": 269,
+        "rounds_played": 3,
+        "scoring_average": 89.67,
+        "average_relative_to_par": 17.67,
+        "best_round": 84,
+        "worst_round": 97,
+        "best_relative_round": 12,
+        "worst_relative_round": 25
+      },
+      "consistency": {
+        "score_standard_deviation": 6.66,
+        "relative_par_standard_deviation": 6.66,
+        "consistency_rating": "Good"
+      },
+      "detailed_performance": {
+        "birdies": 0,
+        "pars": 21,
+        "bogeys": 21,
+        "double_bogeys": 9,
+        "triple_bogeys": 1,
+        "big_numbers": 2,
+        "under_par_percentage": 0.0,
+        "par_or_better_percentage": 38.9
+      },
+      "match_play_performance": {
+        "total_points": 11.0,
+        "possible_points": 18,
+        "win_percentage": 61.1
+      },
+      "daily_performance": {
+        "day_2": {
+          "score": 97,
+          "par": 72,
+          "relative_to_par": 25,
+          "course": "Barefoot Dye",
+          "format": "Match Play"
+        },
+        "day_3": {
+          "score": 88,
+          "par": 72,
+          "relative_to_par": 16,
+          "course": "Aberdeen Country Club",
+          "format": "Best Ball"
+        },
+        "day_4": {
+          "score": 84,
+          "par": 72,
+          "relative_to_par": 12,
+          "course": "Arcadian Shores",
+          "format": "Stableford"
+        }
+      },
+      "course_performance": {
+        "Barefoot Dye": {
+          "rounds_played": 1,
+          "average_score": 97.0,
+          "average_relative_to_par": 25.0,
+          "best_round": 97,
+          "performance_rating": "Struggled"
+        },
+        "Aberdeen Country Club": {
+          "rounds_played": 1,
+          "average_score": 88.0,
+          "average_relative_to_par": 16.0,
+          "best_round": 88,
+          "performance_rating": "Struggled"
+        },
+        "Arcadian Shores": {
+          "rounds_played": 1,
+          "average_score": 84.0,
+          "average_relative_to_par": 12.0,
+          "best_round": 84,
+          "performance_rating": "Struggled"
+        }
+      }
+    },
+    "Dave": {
+      "basic_stats": {
+        "total_score": 298,
+        "rounds_played": 3,
+        "scoring_average": 99.33,
+        "average_relative_to_par": 27.33,
+        "best_round": 90,
+        "worst_round": 110,
+        "best_relative_round": 18,
+        "worst_relative_round": 38
+      },
+      "consistency": {
+        "score_standard_deviation": 10.07,
+        "relative_par_standard_deviation": 10.07,
+        "consistency_rating": "Average"
+      },
+      "detailed_performance": {
+        "birdies": 0,
+        "pars": 12,
+        "bogeys": 18,
+        "double_bogeys": 14,
+        "triple_bogeys": 6,
+        "big_numbers": 4,
+        "under_par_percentage": 0.0,
+        "par_or_better_percentage": 22.2
+      },
+      "match_play_performance": {
+        "total_points": 10.0,
+        "possible_points": 18,
+        "win_percentage": 55.6
+      },
+      "daily_performance": {
+        "day_2": {
+          "score": 110,
+          "par": 72,
+          "relative_to_par": 38,
+          "course": "Barefoot Dye",
+          "format": "Match Play"
+        },
+        "day_3": {
+          "score": 98,
+          "par": 72,
+          "relative_to_par": 26,
+          "course": "Aberdeen Country Club",
+          "format": "Best Ball"
+        },
+        "day_4": {
+          "score": 90,
+          "par": 72,
+          "relative_to_par": 18,
+          "course": "Arcadian Shores",
+          "format": "Stableford"
+        }
+      },
+      "course_performance": {
+        "Barefoot Dye": {
+          "rounds_played": 1,
+          "average_score": 110.0,
+          "average_relative_to_par": 38.0,
+          "best_round": 110,
+          "performance_rating": "Struggled"
+        },
+        "Aberdeen Country Club": {
+          "rounds_played": 1,
+          "average_score": 98.0,
+          "average_relative_to_par": 26.0,
+          "best_round": 98,
+          "performance_rating": "Struggled"
+        },
+        "Arcadian Shores": {
+          "rounds_played": 1,
+          "average_score": 90.0,
+          "average_relative_to_par": 18.0,
+          "best_round": 90,
+          "performance_rating": "Struggled"
+        }
+      }
+    },
+    "Ryan": {
+      "basic_stats": {
+        "total_score": 312,
+        "rounds_played": 3,
+        "scoring_average": 104.0,
+        "average_relative_to_par": 32.0,
+        "best_round": 99,
+        "worst_round": 114,
+        "best_relative_round": 27,
+        "worst_relative_round": 42
+      },
+      "consistency": {
+        "score_standard_deviation": 8.66,
+        "relative_par_standard_deviation": 8.66,
+        "consistency_rating": "Average"
+      },
+      "detailed_performance": {
+        "birdies": 1,
+        "pars": 9,
+        "bogeys": 12,
+        "double_bogeys": 19,
+        "triple_bogeys": 7,
+        "big_numbers": 6,
+        "under_par_percentage": 1.9,
+        "par_or_better_percentage": 18.5
+      },
+      "match_play_performance": {
+        "total_points": 8.0,
+        "possible_points": 18,
+        "win_percentage": 44.4
+      },
+      "daily_performance": {
+        "day_2": {
+          "score": 114,
+          "par": 72,
+          "relative_to_par": 42,
+          "course": "Barefoot Dye",
+          "format": "Match Play"
+        },
+        "day_3": {
+          "score": 99,
+          "par": 72,
+          "relative_to_par": 27,
+          "course": "Aberdeen Country Club",
+          "format": "Best Ball"
+        },
+        "day_4": {
+          "score": 99,
+          "par": 72,
+          "relative_to_par": 27,
+          "course": "Arcadian Shores",
+          "format": "Stableford"
+        }
+      },
+      "course_performance": {
+        "Barefoot Dye": {
+          "rounds_played": 1,
+          "average_score": 114.0,
+          "average_relative_to_par": 42.0,
+          "best_round": 114,
+          "performance_rating": "Struggled"
+        },
+        "Aberdeen Country Club": {
+          "rounds_played": 1,
+          "average_score": 99.0,
+          "average_relative_to_par": 27.0,
+          "best_round": 99,
+          "performance_rating": "Struggled"
+        },
+        "Arcadian Shores": {
+          "rounds_played": 1,
+          "average_score": 99.0,
+          "average_relative_to_par": 27.0,
+          "best_round": 99,
+          "performance_rating": "Struggled"
+        }
+      }
+    },
+    "AJ": {
+      "basic_stats": {
+        "total_score": 367,
+        "rounds_played": 3,
+        "scoring_average": 122.33,
+        "average_relative_to_par": 50.33,
+        "best_round": 114,
+        "worst_round": 136,
+        "best_relative_round": 42,
+        "worst_relative_round": 64
+      },
+      "consistency": {
+        "score_standard_deviation": 11.93,
+        "relative_par_standard_deviation": 11.93,
+        "consistency_rating": "Average"
+      },
+      "detailed_performance": {
+        "birdies": 0,
+        "pars": 1,
+        "bogeys": 9,
+        "double_bogeys": 13,
+        "triple_bogeys": 16,
+        "big_numbers": 15,
+        "under_par_percentage": 0.0,
+        "par_or_better_percentage": 1.9
+      },
+      "match_play_performance": {
+        "total_points": 5.0,
+        "possible_points": 18,
+        "win_percentage": 27.8
+      },
+      "daily_performance": {
+        "day_2": {
+          "score": 136,
+          "par": 72,
+          "relative_to_par": 64,
+          "course": "Barefoot Dye",
+          "format": "Match Play"
+        },
+        "day_3": {
+          "score": 117,
+          "par": 72,
+          "relative_to_par": 45,
+          "course": "Aberdeen Country Club",
+          "format": "Best Ball"
+        },
+        "day_4": {
+          "score": 114,
+          "par": 72,
+          "relative_to_par": 42,
+          "course": "Arcadian Shores",
+          "format": "Stableford"
+        }
+      },
+      "course_performance": {
+        "Barefoot Dye": {
+          "rounds_played": 1,
+          "average_score": 136.0,
+          "average_relative_to_par": 64.0,
+          "best_round": 136,
+          "performance_rating": "Struggled"
+        },
+        "Aberdeen Country Club": {
+          "rounds_played": 1,
+          "average_score": 117.0,
+          "average_relative_to_par": 45.0,
+          "best_round": 117,
+          "performance_rating": "Struggled"
+        },
+        "Arcadian Shores": {
+          "rounds_played": 1,
+          "average_score": 114.0,
+          "average_relative_to_par": 42.0,
+          "best_round": 114,
+          "performance_rating": "Struggled"
+        }
+      }
+    },
+    "Nixon": {
+      "basic_stats": {
+        "total_score": 333,
+        "rounds_played": 3,
+        "scoring_average": 111.0,
+        "average_relative_to_par": 39.0,
+        "best_round": 107,
+        "worst_round": 114,
+        "best_relative_round": 35,
+        "worst_relative_round": 42
+      },
+      "consistency": {
+        "score_standard_deviation": 3.61,
+        "relative_par_standard_deviation": 3.61,
+        "consistency_rating": "Excellent"
+      },
+      "detailed_performance": {
+        "birdies": 0,
+        "pars": 3,
+        "bogeys": 13,
+        "double_bogeys": 21,
+        "triple_bogeys": 8,
+        "big_numbers": 9,
+        "under_par_percentage": 0.0,
+        "par_or_better_percentage": 5.6
+      },
+      "match_play_performance": {
+        "total_points": 13.0,
+        "possible_points": 18,
+        "win_percentage": 72.2
+      },
+      "daily_performance": {
+        "day_2": {
+          "score": 112,
+          "par": 72,
+          "relative_to_par": 40,
+          "course": "Barefoot Dye",
+          "format": "Match Play"
+        },
+        "day_3": {
+          "score": 114,
+          "par": 72,
+          "relative_to_par": 42,
+          "course": "Aberdeen Country Club",
+          "format": "Best Ball"
+        },
+        "day_4": {
+          "score": 107,
+          "par": 72,
+          "relative_to_par": 35,
+          "course": "Arcadian Shores",
+          "format": "Stableford"
+        }
+      },
+      "course_performance": {
+        "Barefoot Dye": {
+          "rounds_played": 1,
+          "average_score": 112.0,
+          "average_relative_to_par": 40.0,
+          "best_round": 112,
+          "performance_rating": "Struggled"
+        },
+        "Aberdeen Country Club": {
+          "rounds_played": 1,
+          "average_score": 114.0,
+          "average_relative_to_par": 42.0,
+          "best_round": 114,
+          "performance_rating": "Struggled"
+        },
+        "Arcadian Shores": {
+          "rounds_played": 1,
+          "average_score": 107.0,
+          "average_relative_to_par": 35.0,
+          "best_round": 107,
+          "performance_rating": "Struggled"
+        }
+      }
+    },
+    "Todd": {
+      "basic_stats": {
+        "total_score": 371,
+        "rounds_played": 3,
+        "scoring_average": 123.67,
+        "average_relative_to_par": 51.67,
+        "best_round": 121,
+        "worst_round": 126,
+        "best_relative_round": 49,
+        "worst_relative_round": 54
+      },
+      "consistency": {
+        "score_standard_deviation": 2.52,
+        "relative_par_standard_deviation": 2.52,
+        "consistency_rating": "Excellent"
+      },
+      "detailed_performance": {
+        "birdies": 0,
+        "pars": 2,
+        "bogeys": 6,
+        "double_bogeys": 18,
+        "triple_bogeys": 17,
+        "big_numbers": 11,
+        "under_par_percentage": 0.0,
+        "par_or_better_percentage": 3.7
+      },
+      "match_play_performance": {
+        "total_points": 10.5,
+        "possible_points": 18,
+        "win_percentage": 58.3
+      },
+      "daily_performance": {
+        "day_2": {
+          "score": 126,
+          "par": 72,
+          "relative_to_par": 54,
+          "course": "Barefoot Dye",
+          "format": "Match Play"
+        },
+        "day_3": {
+          "score": 124,
+          "par": 72,
+          "relative_to_par": 52,
+          "course": "Aberdeen Country Club",
+          "format": "Best Ball"
+        },
+        "day_4": {
+          "score": 121,
+          "par": 72,
+          "relative_to_par": 49,
+          "course": "Arcadian Shores",
+          "format": "Stableford"
+        }
+      },
+      "course_performance": {
+        "Barefoot Dye": {
+          "rounds_played": 1,
+          "average_score": 126.0,
+          "average_relative_to_par": 54.0,
+          "best_round": 126,
+          "performance_rating": "Struggled"
+        },
+        "Aberdeen Country Club": {
+          "rounds_played": 1,
+          "average_score": 124.0,
+          "average_relative_to_par": 52.0,
+          "best_round": 124,
+          "performance_rating": "Struggled"
+        },
+        "Arcadian Shores": {
+          "rounds_played": 1,
+          "average_score": 121.0,
+          "average_relative_to_par": 49.0,
+          "best_round": 121,
+          "performance_rating": "Struggled"
+        }
+      }
+    },
+    "Doug": {
+      "basic_stats": {
+        "total_score": 386,
+        "rounds_played": 3,
+        "scoring_average": 128.67,
+        "average_relative_to_par": 56.67,
+        "best_round": 125,
+        "worst_round": 133,
+        "best_relative_round": 53,
+        "worst_relative_round": 61
+      },
+      "consistency": {
+        "score_standard_deviation": 4.04,
+        "relative_par_standard_deviation": 4.04,
+        "consistency_rating": "Excellent"
+      },
+      "detailed_performance": {
+        "birdies": 0,
+        "pars": 1,
+        "bogeys": 3,
+        "double_bogeys": 11,
+        "triple_bogeys": 19,
+        "big_numbers": 20,
+        "under_par_percentage": 0.0,
+        "par_or_better_percentage": 1.9
+      },
+      "match_play_performance": {
+        "total_points": 7.5,
+        "possible_points": 18,
+        "win_percentage": 41.7
+      },
+      "daily_performance": {
+        "day_2": {
+          "score": 128,
+          "par": 72,
+          "relative_to_par": 56,
+          "course": "Barefoot Dye",
+          "format": "Match Play"
+        },
+        "day_3": {
+          "score": 133,
+          "par": 72,
+          "relative_to_par": 61,
+          "course": "Aberdeen Country Club",
+          "format": "Best Ball"
+        },
+        "day_4": {
+          "score": 125,
+          "par": 72,
+          "relative_to_par": 53,
+          "course": "Arcadian Shores",
+          "format": "Stableford"
+        }
+      },
+      "course_performance": {
+        "Barefoot Dye": {
+          "rounds_played": 1,
+          "average_score": 128.0,
+          "average_relative_to_par": 56.0,
+          "best_round": 128,
+          "performance_rating": "Struggled"
+        },
+        "Aberdeen Country Club": {
+          "rounds_played": 1,
+          "average_score": 133.0,
+          "average_relative_to_par": 61.0,
+          "best_round": 133,
+          "performance_rating": "Struggled"
+        },
+        "Arcadian Shores": {
+          "rounds_played": 1,
+          "average_score": 125.0,
+          "average_relative_to_par": 53.0,
+          "best_round": 125,
+          "performance_rating": "Struggled"
+        }
+      }
+    }
+  },
+  "course_analysis": {
+    "course_stats": {
+      "Barefoot Dye": {
+        "average_score": 115.38,
+        "average_over_par": 43.38,
+        "rounds_played": 8,
+        "difficulty_rating": "Very Hard",
+        "best_score": 97,
+        "worst_score": 136
+      },
+      "Aberdeen Country Club": {
+        "average_score": 108.25,
+        "average_over_par": 36.25,
+        "rounds_played": 8,
+        "difficulty_rating": "Very Hard",
+        "best_score": 88,
+        "worst_score": 133
+      },
+      "Arcadian Shores": {
+        "average_score": 104.0,
+        "average_over_par": 32.0,
+        "rounds_played": 8,
+        "difficulty_rating": "Very Hard",
+        "best_score": 84,
+        "worst_score": 125
+      }
+    },
+    "difficulty_ranking": [
+      {
+        "course": "Barefoot Dye",
+        "avg_over_par": 43.38
+      },
+      {
+        "course": "Aberdeen Country Club",
+        "avg_over_par": 36.25
+      },
+      {
+        "course": "Arcadian Shores",
+        "avg_over_par": 32.0
+      }
+    ]
+  },
+  "head_to_head": {
+    "match_play_leaderboard": [
+      {
+        "player": "Nixon",
+        "points": 13.0,
+        "percentage": 72.2
+      },
+      {
+        "player": "Mike",
+        "points": 11.0,
+        "percentage": 61.1
+      },
+      {
+        "player": "Todd",
+        "points": 10.5,
+        "percentage": 58.3
+      },
+      {
+        "player": "Dave",
+        "points": 10.0,
+        "percentage": 55.6
+      },
+      {
+        "player": "Ryan",
+        "points": 8.0,
+        "percentage": 44.4
+      },
+      {
+        "player": "Doug",
+        "points": 7.5,
+        "percentage": 41.7
+      },
+      {
+        "player": "Jimbo",
+        "points": 7.0,
+        "percentage": 38.9
+      },
+      {
+        "player": "AJ",
+        "points": 5.0,
+        "percentage": 27.8
+      }
+    ],
+    "match_play_champion": "Nixon",
+    "dominant_performers": [
+      {
+        "day": 2,
+        "format": "Match Play",
+        "player": "Nixon",
+        "possible_points": "18",
+        "total_points": 13.0
+      },
+      {
+        "day": 2,
+        "format": "Match Play",
+        "player": "Mike",
+        "possible_points": "18",
+        "total_points": 11.0
+      },
+      {
+        "day": 2,
+        "format": "Match Play",
+        "player": "Todd",
+        "possible_points": "18",
+        "total_points": 10.5
+      },
+      {
+        "day": 2,
+        "format": "Match Play",
+        "player": "Dave",
+        "possible_points": "18",
+        "total_points": 10.0
+      }
+    ],
+    "struggled_performers": [
+      {
+        "day": 2,
+        "format": "Match Play",
+        "player": "Jimbo",
+        "possible_points": "18",
+        "total_points": 7.0
+      },
+      {
+        "day": 2,
+        "format": "Match Play",
+        "player": "AJ",
+        "possible_points": "18",
+        "total_points": 5.0
+      }
+    ]
+  },
+  "performance_trends": {
+    "Jimbo": {
+      "daily_scores": [
+        100,
+        93,
+        92
+      ],
+      "daily_relative_to_par": [
+        28,
+        21,
+        20
+      ],
+      "score_change": -8,
+      "relative_change": -8,
+      "trend_direction": "Strong Improvement",
+      "most_improved_day": "Day 2",
+      "consistency_across_days": 4.36
+    },
+    "Mike": {
+      "daily_scores": [
+        97,
+        88,
+        84
+      ],
+      "daily_relative_to_par": [
+        25,
+        16,
+        12
+      ],
+      "score_change": -13,
+      "relative_change": -13,
+      "trend_direction": "Strong Improvement",
+      "most_improved_day": "Day 2",
+      "consistency_across_days": 6.66
+    },
+    "Dave": {
+      "daily_scores": [
+        110,
+        98,
+        90
+      ],
+      "daily_relative_to_par": [
+        38,
+        26,
+        18
+      ],
+      "score_change": -20,
+      "relative_change": -20,
+      "trend_direction": "Strong Improvement",
+      "most_improved_day": "Day 2",
+      "consistency_across_days": 10.07
+    },
+    "Ryan": {
+      "daily_scores": [
+        114,
+        99,
+        99
+      ],
+      "daily_relative_to_par": [
+        42,
+        27,
+        27
+      ],
+      "score_change": -15,
+      "relative_change": -15,
+      "trend_direction": "Strong Improvement",
+      "most_improved_day": "Day 2",
+      "consistency_across_days": 8.66
+    },
+    "AJ": {
+      "daily_scores": [
+        136,
+        117,
+        114
+      ],
+      "daily_relative_to_par": [
+        64,
+        45,
+        42
+      ],
+      "score_change": -22,
+      "relative_change": -22,
+      "trend_direction": "Strong Improvement",
+      "most_improved_day": "Day 2",
+      "consistency_across_days": 11.93
+    },
+    "Nixon": {
+      "daily_scores": [
+        112,
+        114,
+        107
+      ],
+      "daily_relative_to_par": [
+        40,
+        42,
+        35
+      ],
+      "score_change": -5,
+      "relative_change": -5,
+      "trend_direction": "Strong Improvement",
+      "most_improved_day": "Day 3",
+      "consistency_across_days": 3.61
+    },
+    "Todd": {
+      "daily_scores": [
+        126,
+        124,
+        121
+      ],
+      "daily_relative_to_par": [
+        54,
+        52,
+        49
+      ],
+      "score_change": -5,
+      "relative_change": -5,
+      "trend_direction": "Strong Improvement",
+      "most_improved_day": "Day 3",
+      "consistency_across_days": 2.52
+    },
+    "Doug": {
+      "daily_scores": [
+        128,
+        133,
+        125
+      ],
+      "daily_relative_to_par": [
+        56,
+        61,
+        53
+      ],
+      "score_change": -3,
+      "relative_change": -3,
+      "trend_direction": "Improvement",
+      "most_improved_day": "Day 3",
+      "consistency_across_days": 4.04
+    }
+  },
+  "tournament_insights": {
+    "tournament_champion": "Mike",
+    "lowest_single_round": {
+      "player": "Mike",
+      "score": 84,
+      "course": "Arcadian Shores",
+      "day": 4
+    },
+    "highest_single_round": {
+      "player": "AJ",
+      "score": 136,
+      "course": "Barefoot Dye",
+      "day": 2
+    },
+    "most_consistent_player": {
+      "player": "Todd",
+      "standard_deviation": 2.52
+    },
+    "match_play_dominator": {
+      "player": "Nixon",
+      "points": 13.0
+    },
+    "birdie_machine": {
+      "player": "Ryan",
+      "birdies": 1
+    },
+    "steady_eddie": {
+      "player": "Mike",
+      "pars": 21
+    },
+    "big_number_specialist": {
+      "player": "Doug",
+      "big_numbers": 20
+    },
+    "fun_facts": [
+      "The group combined for 2621 total strokes across all individual rounds",
+      "Arcadian Shores was the most player-friendly course (avg +32.0)",
+      "Barefoot Dye proved the most challenging (avg +43.4)",
+      "Only 1 birdies were made out of 432 total holes played (0.2%)",
+      "In match play, the group earned 72.0 out of 144 possible points"
+    ]
+  }
+}
