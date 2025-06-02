@@ -55,11 +55,12 @@ const CourseAnalysis: React.FC = () => {
           const topPerformers = getBestPerformers(course.course)
           
           return (
-            <Card 
-              key={course.course} 
-              className="text-center hover:border-gray-600 transition-colors cursor-pointer"
+            <div
+              key={course.course}
               onClick={() => setSelectedCourse(course.course === selectedCourse ? null : course.course)}
+              className="cursor-pointer"
             >
+              <Card className="text-center hover:border-gray-600 transition-colors">
               <div className="flex justify-center mb-4">
                 <div className={`p-3 rounded-full ${getDifficultyColor(index + 1)}`}>
                   <Icon className="h-6 w-6" />
@@ -103,6 +104,7 @@ const CourseAnalysis: React.FC = () => {
                 )}
               </div>
             </Card>
+            </div>
           )
         })}
       </div>
